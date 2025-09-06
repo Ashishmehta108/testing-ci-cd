@@ -35,7 +35,3 @@ jobs:
       - name: build file
         run: pnpm run build
         working-directory: ${{ matrix.project }}
-
-      - name: Run project
-        run: pnpm run start
-        working-directory: ${{ matrix.project }}
