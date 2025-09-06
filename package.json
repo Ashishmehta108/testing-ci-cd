@@ -1,6 +1,7 @@
 {
   "name": "testing-ci-cd",
   "version": "1.0.0",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "build": "echo \"No build step required\"",
@@ -8,6 +9,9 @@
     "test": "echo \"No tests yet\" && exit 0",
     "healthcheck": "node index.js & sleep 5 && curl -f http://localhost:4444/hello || exit 1"
   },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
   "dependencies": {
     "express": "^5.1.0"
   }

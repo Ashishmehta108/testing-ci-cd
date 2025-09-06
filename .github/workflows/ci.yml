@@ -25,3 +25,5 @@ jobs:
           cache: "pnpm"
       - name: Install dependencies
         run: pnpm install
+      - name: run index.js
+        run: node index.js
