@@ -3,7 +3,7 @@ name: CI Pipeline
 on:
   push:
     branches:
-     -main
+      - main
   pull_request:
 
 jobs:
@@ -22,5 +22,5 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Run  script
+      - name: Run script
         run: node index.js
