@@ -7,23 +7,58 @@ on:
   pull_request:
 
 jobs:
-  build:
+  frontend:
+    name: Frontend (Next.js)
     runs-on: ubuntu-22.04
     strategy:
       matrix:
         node-version: [20]
     steps:
       - uses: actions/checkout@v4
+
       - name: Install pnpm
         uses: pnpm/action-setup@v4
         with:
           version: 10
+
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
           cache: "pnpm"
+
       - name: Install dependencies
         run: pnpm install
-      - name: run index.js
-        run: node index.js
+        working-directory: frontend 
+
+      - name: Run frontend dev
+        run: pnpm run dev
+        working-directory: frontend
+
+  backend:
+    name: Backend (Express)
+    runs-on: ubuntu-22.04
+    strategy:
+      matrix:
+        node-version: [20]
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: "pnpm"
+
+      - name: Install dependencies
+        run: pnpm install
+        working-directory: backend
+
+      - name: Run backend dev
+        run: pnpm run dev
+        working-directory: backend
