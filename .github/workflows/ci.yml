@@ -12,7 +12,7 @@ jobs:
     strategy:
       matrix:
         node-version: [20]
-        project: [frontend, backend]  
+        project: [frontend, backend]
     steps:
       - uses: actions/checkout@v4
 
@@ -32,6 +32,10 @@ jobs:
         run: pnpm install
         working-directory: ${{ matrix.project }}
 
-      - name: Run dev
-        run: pnpm run dev
+      - name: build file
+        run: pnpm run build
+        working-directory: ${{ matrix.project }}
+
+      - name: Run project
+        run: pnpm run start
         working-directory: ${{ matrix.project }}
