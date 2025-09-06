@@ -6,7 +6,7 @@
     "build": "echo \"No build step required\"",
     "start": "node index.js",
     "test": "echo \"No tests yet\" && exit 0",
-    "healthcheck": "node index.js & sleep 5 && curl -f http://localhost:3000 || exit 1"
+    "healthcheck": "node index.js & sleep 5 && curl -f http://localhost:4444/hello || exit 1"
   },
   "dependencies": {
     "express": "^5.1.0"
